@@ -1,1 +1,15 @@
-../script/svg2pdf
+which inkscape > /dev/null
+if [ !$? ]; then
+	count=`ls -1 *.svg 2>/dev/null | wc -l`
+	if [ $count != 0 ]; then
+		for f in *.svg; do
+			a="$(echo $f | sed s/svg/pdf/)"
+			echo converting "$f" to "$a"
+			inkscape "$f" --export-pdf="$a"
+		done
+	else
+		echo No svg file found in current directory.
+	fi
+else
+	echo Please install inkscape.
+fi
