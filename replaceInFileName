@@ -1,3 +1,12 @@
+#!/bin/sh +x
+#
+# Copyright (C) 2021 Uysan
+#
+# This program is free software which is
+# licensed under the terms of the GNU General Public License v2.
+#
+# Author: Selcuk Mustafa
+#
 if [ $# -eq 2 ] && [ ! -z "$1" ] && [ ! -z "$2" ]; then
 	for f in *$1*; do
 	    a="$(echo $f | sed s/$1/$2/)"
